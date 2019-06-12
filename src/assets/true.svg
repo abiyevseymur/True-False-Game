@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>true</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="8.91826841e-05 9.86494928e-05 29.7301523 9.86494928e-05 29.7301523 29.73 8.91826841e-05 29.73"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy" transform="translate(-190.000000, -833.000000)">
+            <g id="true" transform="translate(143.000000, 816.000000)">
+                <g id="Group" transform="translate(47.000000, 11.000000)">
+                    <g id="true" transform="translate(0.000000, 6.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M29.0775135,0.194918919 C28.4388649,-0.190756757 27.6080541,0.0138378378 27.2221081,0.652756757 L11.9285946,25.966 L2.43237838,13.3116757 C1.98427027,12.7149189 1.13724324,12.5935676 0.540486486,13.0419459 C-0.0565405405,13.4897838 -0.177351351,14.3368108 0.270756757,14.9338378 L10.9688649,29.1897838 C11.2248108,29.5308649 11.6256216,29.7300541 12.0496757,29.7300541 C12.0721081,29.7300541 12.0948108,29.7295135 12.1175135,29.7281622 C12.5658919,29.7057297 12.974,29.4619459 13.2064324,29.0773514 L29.5350811,2.05032432 C29.9212973,1.41167568 29.7161622,0.580864865 29.0775135,0.194918919" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

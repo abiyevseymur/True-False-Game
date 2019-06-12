@@ -1,0 +1,75 @@
+
+:root{
+    --customRed:#ef4136;
+    --customGreen:#8DC63F;
+}
+body{
+    font-family: 'Comfortaa', cursive;
+}
+.App{
+    overflow: hidden;
+}
+.backgroundImage{
+    background-image: url('https://www.fjords.com/wp-content/uploads/2018/12/DSC_6281-2000x1200.jpg');
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+}
+.backgroundImage-overlay{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+.header {
+    z-index: 2;
+    color:white;
+}
+.highScore{
+    z-index: 2;
+    font-size: 26px;
+    padding: 10px;
+    margin: 0;
+    margin-left: 25px;
+}
+
+.highScore span{
+    font-weight: 600;
+    vertical-align: middle;
+}
+.login  {
+    z-index: 2;
+    padding: 10px;
+    font-size: 26px;
+    text-align: right;
+    margin: 0;
+    margin-right: 25px;
+}
+.content{
+    text-align: center;
+}
+.start{
+    background: unset;
+    color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px 15px;
+    outline: none;
+    font-size: 25px;
+    position: relative;
+
+
+}
+.start:focus{
+    outline: none;
+}
+.logo img{
+    position: relative;
+    margin: 30px;
+    margin-top: 10%;
+    width: 30%;
+}
