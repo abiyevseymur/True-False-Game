@@ -1,0 +1,15 @@
+.button{
+    background: unset;
+    color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px 15px;
+    outline: none;
+    font-size: 25px;
+    position: relative;
+    margin: 15px auto;
+
+}
+.button:focus{
+    outline: none;
+}

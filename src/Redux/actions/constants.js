@@ -1,0 +1,6 @@
+export const OPEN_QUESTION_PAGE ='OPEN_QUESTION_PAGE'
+export const GAME_WITH_TIME = 'GAME_WITH_TIME'
+export const GET_ANSWER= 'GET_ANSWER'
+export const GET_QUESTION = 'GET_QUESTION'
+export const INCREASE_SCORE = 'INCREASE_SCORE'
+export const STOP_SCORE ='STOP_SCORE'

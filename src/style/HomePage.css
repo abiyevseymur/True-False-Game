@@ -12,10 +12,9 @@ body{
 .backgroundImage{
     background-image: url('https://www.fjords.com/wp-content/uploads/2018/12/DSC_6281-2000x1200.jpg');
     height: 100%;
-    position: absolute;
+    position: fixed;
     width: 100%;
     background-size: cover;
-    position: absolute;
     top: 0;
 }
 .backgroundImage-overlay{
@@ -51,19 +50,9 @@ body{
 }
 .content{
     text-align: center;
-}
-.start{
-    background: unset;
     color: white;
-    border: 3px solid white;
-    border-radius: 10px;
-    padding: 5px 15px;
-    outline: none;
-    font-size: 25px;
-    position: relative;
-
-
 }
+
 .start:focus{
     outline: none;
 }
