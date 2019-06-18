@@ -3,6 +3,10 @@ import logo from '../../assets/logo.png'
 import css from  './GameOver.module.css'
 
 const GameOver = (props) => {
+    function onPlayClickHandler(){
+        props.stopScore()
+        props.question()
+    }
     function showScore(){
         (localStorage.setItem('score',props.score))
         return props.score
@@ -23,7 +27,7 @@ const GameOver = (props) => {
                 <div className='backgroundImage-overlay'></div>
                 <div className="logo"><img src={logo} alt="" /></div>
                 <div className={css.yourScore}><h1>Your Score:</h1><h1>{props.score}</h1></div>
-                <button className={css.button} onClick={() => props.question()} >Play Again</button>
+                <button className={css.button} onClick={() =>onPlayClickHandler()} >Play Again</button>
 
                 <button className={css.button} onClick={() => props.open(null)} >Back to Menu</button>
             </div>

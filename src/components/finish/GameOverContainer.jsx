@@ -4,11 +4,6 @@ import {questionPageOpen,getQuestion,stopScore} from '../../Redux/actions'
 import { connect } from "react-redux";
 
 class GameOverContainer extends Component{
-    componentDidMount(){
-        localStorage.setItem('score',this.props.score)
-        console.log('test')
-        this.props.stopScore()
-    }
     render(){
         return(
             <GameOver

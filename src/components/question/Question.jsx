@@ -5,6 +5,10 @@ import False from '../../assets/false.svg'
 import Time from './Time';
 
 const Question = (props) => {
+    console.log((props.realAnswer)?props.realAnswer:null)
+    function onClickHandler(id,value){
+        props.answer(id,value)
+    }
     function render() {
         return (<div>
             <div className="header">
@@ -14,13 +18,15 @@ const Question = (props) => {
                 </div>
             </div>
             <div className="content">
-                <div className='backgroundImage'></div>
+                <div className={css.backgroundImage} style = {(props.question)?{backgroundImage:`url(${props.question.i})`}:null}></div>
                 <div className='backgroundImage-overlay'></div>
                 <div className={css.question}>{(props.question)?props.question.q:null}</div>
                 <div className={css.answer}>
-                    <button onClick={()=>props.answer(props.question.id,true)}><img src={True} alt="isTrue" /> True</button>
+                    <button onClick={()=>onClickHandler(props.question.id,true)}  className={(props.realAnswer==='true')?css.fill:null}>
+                        <img src={True} alt="isTrue" /> True</button>
                     <label id={css.or}>or</label>
-                    <button onClick={()=>props.answer(props.question.id,false)}><img src={False} alt="isFalse" /> False</button>
+                    <button onClick={()=>onClickHandler(props.question.id,false)} className={`${css.false} ${(props.realAnswer==='false')?css.fill:null}`}>
+                        <img src={False} alt="isFalse" /> False</button>
                 </div>
             </div>
             {(props.time)?<div className={css.footer}>

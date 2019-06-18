@@ -1,18 +1,19 @@
-
-.question{
+.question {
     position: relative;
     color: white;
     font-size: 40px;
     width: 50%;
     text-shadow: 1px 1px 2px black;
     margin: auto;
-    margin-top: 27%;    
+    margin-top: 27%;
 }
-.answer{
+
+.answer {
     position: relative;
     margin-top: 30px;
 }
-.answer button{
+
+.answer button {
     background: unset;
     color: white;
     border: 3px solid white;
@@ -22,47 +23,86 @@
     font-size: 30px;
     width: 200px;
     position: relative;
+    background: linear-gradient(to right, var(--customGreen) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right;
 }
-.answer button img{
+.false{
+    background: linear-gradient(to right, var(--customRed) 50%, transparent 50%) !important;
+    background-size: 200% 100% !important;
+    background-position: right !important;
+}
+
+.answer button:hover {
+    background-color: rgba(141, 198, 63, 0.2);
+}
+
+.fill {
+    background-position: left !important;
+    transition: all .5s ease;
+}
+
+.false:hover {
+    background-color: rgba(239, 65, 54, 0.2) !important;
+}
+
+.answer button img {
     margin: 0 8px;
     margin-top: -5px;
     margin-left: 0;
-
 }
-.answer button:focus{
+
+.answer button:focus {
     outline: none;
 }
-#or{
+
+#or {
     color: white;
     font-size: 24px;
     padding: 0 10px;
     vertical-align: middle;
 }
-.answer button:first-child{
+
+.answer button:first-child {
     border-color: var(--customGreen)
 }
-.answer button:last-child{
+
+.answer button:last-child {
     border-color: var(--customRed)
 }
-.footer{
+
+.footer {
     text-align: left;
     margin-left: 20px;
 }
-.time{
+
+.time {
     position: absolute;
     color: white;
     bottom: 20px;
     font-size: 40px;
     line-height: 1;
 }
-.time .timeCount{
+
+.time .timeCount {
     font-weight: 600;
 }
-.time #timeTitle{
+
+.time #timeTitle {
     color: var(--customGreen);
     font-size: 22px;
 }
-.time #seconds{
+
+.time #seconds {
     color: var(--customRed);
     font-size: 16px;
+}
+
+.backgroundImage {
+    background-image: url('https://www.fjords.com/wp-content/uploads/2018/12/DSC_6281-2000x1200.jpg');
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    background-size: cover;
+    top: 0;
 }

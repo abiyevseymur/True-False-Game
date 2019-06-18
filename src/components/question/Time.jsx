@@ -5,12 +5,13 @@ class Time extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 300,
+            count: 1000,
             running: false,
         }
     }
     componentDidMount() {
-        this.handleCountdown(this.state.count)
+        let time = this.props.question.q.split(' ').length*50+500
+        this.handleCountdown(time)
     }
     componentDidUpdate(prevProps, prevState) {
         if (this.state.running !== prevState.running) {
@@ -26,6 +27,10 @@ class Time extends Component {
     }
     componentWillUnmount() {
         this.handleStop()
+    }
+    componentWillReceiveProps(newProps) {
+        let time =newProps.question.q.split(' ').length*50+500
+        this.handleCountdown(time)
     }
     handleStart() {
 
@@ -59,7 +64,7 @@ class Time extends Component {
         let seconds = Math.floor(time / 100);
         seconds = seconds.toString().length === 1 ? "0" + seconds : seconds;
         milliseconds = milliseconds.toString().length === 1 ? "0" + milliseconds : milliseconds;
-        return seconds + ',' + milliseconds;
+        return seconds + ':' + milliseconds;
     }
     render() {
         return (
