@@ -1,10 +1,10 @@
-import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_ANSWER, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, FILL_BUTTON } from "./constants";
+import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_ANSWER, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, FILL_BUTTON, SWIPE_ON_TOUCH } from "./constants";
 import { API } from './API'
 
 export const questionPageOpen = (value) => ({ type: OPEN_QUESTION_PAGE, open: value })
 export const gameWithTime = (time) => ({ type: GAME_WITH_TIME, time })
 export const stopScore = () => ({ type: STOP_SCORE })
-
+export const swipe = (pixel) =>({type:SWIPE_ON_TOUCH,pixel})
 
 export const getQuestion = () => async dispatch => {
     const response = await API.get('/get-question')
@@ -29,7 +29,8 @@ export const getAnswer = (id, value) => async dispatch => {
         dispatch({ type: FILL_BUTTON, answer: response.data.type })
         setTimeout(() => {
             dispatch(questionPageOpen(false))
-        }, 500);
+            dispatch({ type: FILL_BUTTON, answer:null })
+        }, 2000);
     }
     dispatch({
         type: GET_ANSWER,

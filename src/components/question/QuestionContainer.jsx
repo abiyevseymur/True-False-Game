@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Question from './Question';
 import { connect } from 'react-redux'
-import { questionPageOpen, getAnswer } from '../../Redux/actions'
+import { questionPageOpen, getAnswer,swipe } from '../../Redux/actions'
 
 class QuestionContainer extends Component {
 
@@ -15,6 +15,8 @@ class QuestionContainer extends Component {
                 question={this.props.question}
                 score={this.props.score}
                 realAnswer={this.props.answer}
+                swiped={this.props.swipe}
+                pixel={this.props.pixel}
             />
         )
     }
@@ -26,7 +28,8 @@ const mapsStateToProps = (state) => {
         question: state.questionPage.question,
         score: state.questionPage.score,
         answer: state.questionPage.answer,
+        pixel:state.questionPage.pixel,
     }
 }
 
-export default connect(mapsStateToProps, { questionPageOpen, getAnswer })(QuestionContainer)
+export default connect(mapsStateToProps, { questionPageOpen, getAnswer,swipe })(QuestionContainer)

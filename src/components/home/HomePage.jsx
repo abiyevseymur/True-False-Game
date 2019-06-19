@@ -3,12 +3,12 @@ import logo from '../../assets/logo.png'
 import css from './HomePage.module.css'
 
 const HomePage = (props) => {
-    function onClickHandlerWithTime(){
+    function onClickHandlerWithTime() {
         props.time(true)
         props.stopScore()
         props.questions();
     }
-    function onClickHandler(){
+    function onClickHandler() {
         props.time(false)
         props.stopScore()
         props.questions();
@@ -27,8 +27,9 @@ const HomePage = (props) => {
                     </div>
                     <div className='backgroundImage-overlay'></div>
                     <div className="logo"><img src={logo} alt="" /></div>
-                    <div><button className={css.button} onClick={() => onClickHandler()} >Classic Game</button></div>
-                    <div><button className={css.button} onClick={() => onClickHandlerWithTime()} >Play with Time</button></div>
+                        <div><button className={css.button} onClick={() => onClickHandler()} >Classic Game</button></div>
+                        <div><button className={css.button} onClick={() => onClickHandlerWithTime()} >Play with Time</button></div>
+
                 </div>
                 <div className="footer">
 
@@ -37,7 +38,7 @@ const HomePage = (props) => {
         )
     }
     return (
-        (props.showPage === null) ? render():null
+        (props.showPage === null) ? render() : null
 
     )
 }
