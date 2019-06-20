@@ -19,10 +19,12 @@ export const getAnswer = (id, value) => async dispatch => {
     console.log(response.data, value)
     if (response.data.type === value.toString()) {
         dispatch({ type: FILL_BUTTON, answer: response.data.type })
+        dispatch(getQuestion())
+
         setTimeout(() => {
             dispatch({ type: INCREASE_SCORE })
-            dispatch(getQuestion())
             dispatch({ type: FILL_BUTTON, answer:null })
+            dispatch(swipe(0))
         }, 500);
     }
     else {
@@ -30,7 +32,8 @@ export const getAnswer = (id, value) => async dispatch => {
         setTimeout(() => {
             dispatch(questionPageOpen(false))
             dispatch({ type: FILL_BUTTON, answer:null })
-        }, 2000);
+            dispatch(swipe(0))
+        }, 1500);
     }
     dispatch({
         type: GET_ANSWER,

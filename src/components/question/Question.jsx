@@ -6,9 +6,22 @@ import Time from './Time';
 import SwipeItem from './swipe/SwipeItem';
 
 const Question = (props) => {
-    console.log((props.realAnswer) ? props.realAnswer : null)
     function onClickHandler(id, value) {
         props.answer(id, value)
+    }
+    function showQuestion(){
+        if(props.question && props.realAnswer===null) 
+        return props.question.q
+        else
+        return
+    }
+    function showBackImage(){
+        if(props.question && props.realAnswer===null) 
+        return ({ backgroundImage: `url(${props.question.i})` ,
+        transform: `translateX(${props.pixel}px)`} )
+        else{
+            return ({ transition: `all 0.5s ease`,backgroundImage:`url${props.question.i}`} )
+        }
     }
     function render() {
         return (<div>
@@ -19,14 +32,16 @@ const Question = (props) => {
                 </div>
             </div>
             <div className="content">
-                <div className={css.trueButton} style={(props.pixel>0)?{backgroundColor:'var(--customGreen)',textAlign:'left'}:{display:'none'}}>true</div>
-                <div className={css.backgroundImage} style={(props.question) ? { backgroundImage: `url(${props.question.i})` ,
-                transform: `translateX(${props.pixel}px)`} : null}
+                <div className={css.trueButton} style={(props.pixel>0)?{backgroundColor:'var(--customGreen)',textAlign:'left'}:{display:'none'}}>
+                    <label id={css.trueLabel}><img src={True} alt="isTrue"/> <div>True</div></label> </div>
+                <div className={css.backgroundImage} style={showBackImage()}
                     > <div className='backgroundImage-overlay'></div></div>
-                <div className={css.falseButton} style={(props.pixel<0)?{backgroundColor:'var(--customRed)',textAlign:'right'}:{display:'none'}}>false</div>
+                <div className={css.falseButton} style={(props.pixel<0)?{backgroundColor:'var(--customRed)',textAlign:'right'}:{display:'none'}}>
+                <label id={css.falseLabel}><img src={False} alt="isFalse" /> <div>False</div></label>
+                </div>
 
                
-                <div className={css.question} style={{ transform: `translateX(${props.pixel}px)` }}>{(props.question) ? props.question.q : null}</div>
+                <div className={css.question} style={{ transform: `translateX(${props.pixel}px)` }} >{showQuestion()}</div>
                 <div className={`${css.answer} 	d-none d-sm-block`}>
                     <button onClick={() => onClickHandler(props.question.id, true)} className={(props.realAnswer === 'true') ? css.fill : null}>
                         <img src={True} alt="isTrue" /> True</button>
@@ -35,7 +50,7 @@ const Question = (props) => {
                         <img src={False} alt="isFalse" /> False</button>
                 </div>
                 <div className={`${css.answer} 	d-block d-sm-none`}>
-                    <SwipeItem swiped={props.swiped} pixel={props.pixel}/>
+                    <SwipeItem {...props}/>
                 </div>
             </div>
             {(props.time) ? <div className={css.footer}>

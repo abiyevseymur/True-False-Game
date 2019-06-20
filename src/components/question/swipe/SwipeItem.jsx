@@ -15,11 +15,13 @@ const SwipeItem = (props) => {
 
   function onSwipeEnd(event) {
     console.log(props.pixel, 'End swiping...');
-    if (props.pixel > 100) {
-      props.swiped(150)
+    if (props.pixel > 80) {
+      props.swiped(props.pixel)
+      props.answer(props.question.id,true)
     }
-    else if(props.pixel< -100){
-      props.swiped(-150)
+    else if(props.pixel< -80){
+      props.swiped(props.pixel)
+      props.answer(props.question.id,false)
     }
     else{
       props.swiped(0)
@@ -28,12 +30,14 @@ const SwipeItem = (props) => {
 
 
 
+  console.log(props)
 
   return (
     <Swipe
       onSwipeStart={onSwipeStart}
       onSwipeMove={onSwipeMove}
-      onSwipeEnd={onSwipeEnd}>
+      onSwipeEnd={onSwipeEnd}
+      >  
       <div className={css.swipeItem}></div>
     </Swipe>
   );

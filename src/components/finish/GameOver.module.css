@@ -1,7 +1,8 @@
-.yourScore{
+.yourScore {
     position: relative;
 }
-.button{
+
+.button {
     display: block;
     background: unset;
     color: white;
@@ -13,6 +14,16 @@
     position: relative;
     margin: 20px auto;
 }
-.button:focus{
+
+.button:focus {
     outline: none;
+}
+
+@media(max-width:350px) {
+    .yourScore h1 {
+        font-size: 28px;
+    }
+    .button {
+        font-size: 22px;
+    }
 }
