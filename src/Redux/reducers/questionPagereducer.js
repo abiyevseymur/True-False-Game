@@ -1,4 +1,4 @@
-import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, FILL_BUTTON, SWIPE_ON_TOUCH } from "../actions/constants";
+import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, FILL_BUTTON, SWIPE_ON_TOUCH, SWIPE_STARTED } from "../actions/constants";
 
 const initialState = {
     open: null,
@@ -6,7 +6,8 @@ const initialState = {
     question: null,
     score: 0,
     answer: null,
-    pixel: 0
+    pixel: 0,
+    swiped:false
 }
 export const questionPageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -44,6 +45,11 @@ export const questionPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pixel: action.pixel
+            }
+        case SWIPE_STARTED:
+            return {
+                ...state,
+                swiped: true
             }
         default:
             return state;

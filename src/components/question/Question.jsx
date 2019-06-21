@@ -4,16 +4,18 @@ import True from '../../assets/true.svg'
 import False from '../../assets/false.svg'
 import Time from './Time';
 import SwipeItem from './swipe/SwipeItem';
+import swipe from '../../assets/swipe.svg'
 
 const Question = (props) => {
     function onClickHandler(id, value) {
+        if(props.realAnswer===null)
         props.answer(id, value)
     }
     function showQuestion(){
         if(props.question && props.realAnswer===null) 
-        return props.question.q
+        return  <div className={css.question} style={{ transform: `translateX(${props.pixel}px)`}} >{props.question.q}</div>
         else
-        return
+        return  <div className={css.question} style={{ transition: `all 0.4s ease`,opacity:'0.2' }} >{props.question.q}</div>
     }
     function showBackImage(){
         if(props.question && props.realAnswer===null) 
@@ -22,6 +24,10 @@ const Question = (props) => {
         else{
             return ({ transition: `all 0.5s ease`,backgroundImage:`url${props.question.i}`} )
         }
+    }
+    function onTouchStartHandler(){
+        localStorage.setItem('swipeStart','true')
+        props.startSwipe()
     }
     function render() {
         return (<div>
@@ -41,7 +47,7 @@ const Question = (props) => {
                 </div>
 
                
-                <div className={css.question} style={{ transform: `translateX(${props.pixel}px)` }} >{showQuestion()}</div>
+                {showQuestion()}
                 <div className={`${css.answer} 	d-none d-sm-block`}>
                     <button onClick={() => onClickHandler(props.question.id, true)} className={(props.realAnswer === 'true') ? css.fill : null}>
                         <img src={True} alt="isTrue" /> True</button>
@@ -50,8 +56,11 @@ const Question = (props) => {
                         <img src={False} alt="isFalse" /> False</button>
                 </div>
                 <div className={`${css.answer} 	d-block d-sm-none`}>
-                    <SwipeItem {...props}/>
+                    <SwipeItem {...props} onSwipeHandler={onClickHandler}/>
+                    {(localStorage.getItem('swipeStart')==='false')? <div className={css.swipeIcon} style ={(props.swipeStarted)?{display:'none'}:null} 
+                     onTouchStart={()=>onTouchStartHandler()}><img src={swipe} alt="swipe"/></div>:null}
                 </div>
+               
             </div>
             {(props.time) ? <div className={css.footer}>
                 <Time {...props} />

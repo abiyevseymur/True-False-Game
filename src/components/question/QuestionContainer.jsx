@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Question from './Question';
 import { connect } from 'react-redux'
-import { questionPageOpen, getAnswer,swipe } from '../../Redux/actions'
+import { questionPageOpen, getAnswer,swipe,startSwipe } from '../../Redux/actions'
 
 class QuestionContainer extends Component {
 
@@ -17,6 +17,8 @@ class QuestionContainer extends Component {
                 realAnswer={this.props.answer}
                 swiped={this.props.swipe}
                 pixel={this.props.pixel}
+                startSwipe= {this.props.startSwipe}
+                swipeStarted = {this.props.swipeStarted}
             />
         )
     }
@@ -29,7 +31,8 @@ const mapsStateToProps = (state) => {
         score: state.questionPage.score,
         answer: state.questionPage.answer,
         pixel:state.questionPage.pixel,
+        swipeStarted:state.questionPage.swiped
     }
 }
 
-export default connect(mapsStateToProps, { questionPageOpen, getAnswer,swipe })(QuestionContainer)
+export default connect(mapsStateToProps, { questionPageOpen, getAnswer,swipe,startSwipe })(QuestionContainer)
