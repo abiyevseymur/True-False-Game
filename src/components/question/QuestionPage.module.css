@@ -5,7 +5,8 @@
     width: 50%;
     text-shadow: 1px 1px 2px black;
     margin: auto;
-    margin-top: 20%;
+    top: 50%;
+    transform: translateY(-50%);
     left:10%;
     right: 10%;
 }
@@ -107,6 +108,7 @@
 .backgroundImage {
     background-image: url('https://www.fjords.com/wp-content/uploads/2018/12/DSC_6281-2000x1200.jpg');
     height: 100%;
+    background-position: center;
     position: fixed;
     width: 100%;
     background-size: cover;
@@ -145,20 +147,22 @@
 
 #trueLabel {
     position: relative;
-    top: 45%;
     display: block;
     font-size: 26px;
     margin-left: 30px;
     line-height: 2;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #falseLabel {
     position: relative;
-    top: 45%;
     display: inline-block;
     margin-right: 18px;
     font-size: 26px;
     line-height: 2;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #trueLabel img, #falseLabel img {
@@ -182,6 +186,18 @@
     width: 90px;
     
 }
+#author{
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+    z-index: 1;
+    color: rgba(255, 255, 255,0.5);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+
 @keyframes swipe{
     0%   { left: 36%; }
     10%  {left: 54%; }
@@ -198,8 +214,26 @@
 @media (max-width:500px){
     .question {
         font-size: 26px;
-        margin-top: 30%;
         width: 75%;
+    }
+    .time{
+        font-size: 34px;
+    }
+    .time #timeTitle{
+        font-size: 16px;
+    }
+    .time #seconds{
+        font-size: 13px;
+    }
+    
+}
+@media  (max-width:812px) and (orientation:landscape){
+    .question {
+        font-size: 28px;
+        width: 75%;
+    }
+    .answer{
+        bottom: 10%;
     }
     
 }

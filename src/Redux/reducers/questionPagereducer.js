@@ -7,7 +7,8 @@ const initialState = {
     score: 0,
     answer: null,
     pixel: 0,
-    swiped:false
+    swiped:false,
+    desc:null,
 }
 export const questionPageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -40,6 +41,7 @@ export const questionPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 answer: action.answer,
+                desc:action.desc
             }
         case SWIPE_ON_TOUCH:
             return {

@@ -15,26 +15,27 @@ const HomePage = (props) => {
     }
     function render() {
         return (
-            <div>
-                <div className="header">
-                    <div className="row">
-                        <div className="col highScore"> High score <span>{localStorage.getItem('score')}</span></div>
-                        {/* <div className="col login">login </div> */}
+            <>
+              <div className="header">
+                        <div className="row">
+                            <div className="col highScore"> High score <span>{localStorage.getItem('score')}</span></div>
+                           
+                        </div>
                     </div>
+                <div className={css.backgroundImage}>
                 </div>
-                <div className="content">
-                    <div className='backgroundImage'>
-                    </div>
-                    <div className='backgroundImage-overlay'></div>
-                    <div className="logo"><img src={logo} alt="" /></div>
+                <div className='backgroundImage-overlay'></div>
+                <div className={css.AppContent}>
+                    <div className="content">
+                        <div className="logo"><img src={logo} alt="" /></div>
                         <div><button className={css.button} onClick={() => onClickHandler()} >Classic Game</button></div>
                         <div><button className={css.button} onClick={() => onClickHandlerWithTime()} >Play with Time</button></div>
-
+                    </div>
                 </div>
                 <div className="footer">
-
-                </div>
-            </div>
+                    <a href='https://www.shutterstock.com/g/Giulio_Fornasar'><h6 id={css.author}>Giulio_Fornasar / Shutterstock</h6></a>
+                    </div>
+            </>
         )
     }
     return (

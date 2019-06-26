@@ -30,6 +30,7 @@ class Time extends Component {
     }
     componentWillReceiveProps(newProps) {
         let time =newProps.question.q.split(' ').length*50+500
+        if(this.props.realAnswer)
         this.handleCountdown(time)
     }
     handleStart() {

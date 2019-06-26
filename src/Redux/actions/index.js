@@ -15,6 +15,10 @@ export const getQuestion = () => async dispatch => {
     })
     await dispatch(questionPageOpen(true))
 }
+export const playAgain = ()=>async dispatch=>{
+    await dispatch(getQuestion());
+    await dispatch(stopScore())
+}
 export const getAnswer = (id, value) => async dispatch => {
     const response = await API.get(`/get-answer/${id}`)
     if (response.data.type === value.toString()) {
@@ -28,10 +32,10 @@ export const getAnswer = (id, value) => async dispatch => {
         }, 500);
     }
     else {
-        dispatch({ type: FILL_BUTTON, answer: response.data.type })
+        dispatch({ type: FILL_BUTTON, answer: response.data.type,desc:response.data.answer })
         setTimeout(() => {
             dispatch(questionPageOpen(false))
-            dispatch({ type: FILL_BUTTON, answer:null })
+            dispatch({ type: FILL_BUTTON, answer:null,desc:response.data.answer  })
             dispatch(swipe(0))
         }, 1500);
     }

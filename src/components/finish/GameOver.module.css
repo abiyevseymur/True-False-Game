@@ -1,5 +1,29 @@
 .yourScore {
     position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: auto;
+    line-height: 1;
+}
+
+.AppContent {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.backgroundImage{
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+}
+.yourScore span {
+    font-size: 60px;
+    color: var(--customGreen)
 }
 
 .button {
@@ -19,11 +43,58 @@
     outline: none;
 }
 
+.fbButton {
+    background: #4267b2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    white-space: pre-wrap;
+}
+
+.fbButton img {
+    width: 30px;
+    margin: 0;
+    margin-right: 3px;
+}
+
+.fbButton:focus {
+    outline: none;
+}
+.fbButton span{
+    vertical-align: middle;
+}
+
+#answerMessage {
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 24px;
+    width: 60%;
+}
+
+#fbShare {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
 @media(max-width:350px) {
     .yourScore h1 {
-        font-size: 28px;
+        font-size: 18px;
     }
     .button {
         font-size: 22px;
+    }
+}
+
+@media(max-width:500px) {
+    #answerMessage {
+        font-size: 16px;
+        width: 80%;
     }
 }

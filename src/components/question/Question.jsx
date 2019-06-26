@@ -13,9 +13,9 @@ const Question = (props) => {
     }
     function showQuestion(){
         if(props.question && props.realAnswer===null) 
-        return  <div className={css.question} style={{ transform: `translateX(${props.pixel}px)`}} >{props.question.q}</div>
+        return  <div className={css.question} style={{ transform: `translate(${props.pixel}px, -50%)`}} ><span>{props.question.q}</span></div>
         else
-        return  <div className={css.question} style={{ transition: `all 0.4s ease`,opacity:'0.2' }} >{props.question.q}</div>
+        return  <div className={css.question} style={{ transition: `all 0.4s ease`,opacity:'0.2' }} ><span>{props.question.q}</span></div>
     }
     function showBackImage(){
         if(props.question && props.realAnswer===null) 
@@ -33,8 +33,10 @@ const Question = (props) => {
         return (<div>
             <div className="header">
                 <div className="row">
-                    <div className="col highScore"> score <span>{props.score}</span></div>
+                    <div className="col highScore" style={(props.realAnswer)?{fontSize:'26px'}:{fontSize:'16px'}}> Score: <span>{props.score}</span></div>
                     {/* <div className="col login">login </div> */}
+                    <div className="col highScore" style={{textAlign:'right',paddingRight:'30px'}}> High Score: <span>{(localStorage.getItem('score')>=props.score)?
+                    localStorage.getItem('score'):props.score}</span></div>
                 </div>
             </div>
             <div className="content">
@@ -65,6 +67,7 @@ const Question = (props) => {
             {(props.time) ? <div className={css.footer}>
                 <Time {...props} />
             </div> : null}
+            <a href={props.question.il}><h6 id={css.author}>{props.question.io}</h6></a>
         </div>)
     }
     return (
