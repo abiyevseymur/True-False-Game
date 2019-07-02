@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { questionPageOpen, gameWithTime, getQuestion, stopScore } from '../../Redux/actions'
+import { questionPageOpen, gameWithTime, getQuestion, stopScore,getAllQuestionsId } from '../../Redux/actions'
 import HomePage from './HomePage';
 
 
 class HomePageContainer extends Component {
     componentDidMount() {
+        this.props.getAllQuestionsId()
         if (localStorage.getItem('swipeStart') !== 'true')
             localStorage.setItem('swipeStart', 'false')
     }
@@ -28,4 +29,4 @@ const mapsStateToProps = (state) => {
         open: state.questionPage.open,
     }
 }
-export default connect(mapsStateToProps, { questionPageOpen, gameWithTime, getQuestion, stopScore })(HomePageContainer)
+export default connect(mapsStateToProps, { questionPageOpen, gameWithTime, getQuestion, stopScore,getAllQuestionsId })(HomePageContainer)

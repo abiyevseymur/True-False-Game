@@ -46,7 +46,7 @@
 
 .fill {
     background-position: left !important;
-    transition: all .5s ease;
+    transition: all 0.7s ease;
 }
 
 .false:hover {
@@ -106,7 +106,6 @@
 }
 
 .backgroundImage {
-    background-image: url('https://www.fjords.com/wp-content/uploads/2018/12/DSC_6281-2000x1200.jpg');
     height: 100%;
     background-position: center;
     position: fixed;

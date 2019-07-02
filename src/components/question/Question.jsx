@@ -8,7 +8,7 @@ import swipe from '../../assets/swipe.svg'
 
 const Question = (props) => {
     function onClickHandler(id, value) {
-        if(props.realAnswer===null)
+        if(props.realAnswer===null && props.question)
         props.answer(id, value)
     }
     function showQuestion(){
@@ -42,8 +42,9 @@ const Question = (props) => {
             <div className="content">
                 <div className={css.trueButton} style={(props.pixel>0)?{backgroundColor:'var(--customGreen)',textAlign:'left'}:{display:'none'}}>
                     <label id={css.trueLabel}><img src={True} alt="isTrue"/> <div>True</div></label> </div>
-                <div className={css.backgroundImage} style={showBackImage()}
-                    > <div className='backgroundImage-overlay'></div></div>
+                <div className='d-none'><img src={(props.question.i)} alt="download"/></div>
+                <div className={css.backgroundImage} style={showBackImage()}> 
+                <div className='backgroundImage-overlay'></div></div>
                 <div className={css.falseButton} style={(props.pixel<0)?{backgroundColor:'var(--customRed)',textAlign:'right'}:{display:'none'}}>
                 <label id={css.falseLabel}><img src={False} alt="isFalse" /> <div>False</div></label>
                 </div>
@@ -51,10 +52,10 @@ const Question = (props) => {
                
                 {showQuestion()}
                 <div className={`${css.answer} 	d-none d-sm-block`}>
-                    <button onClick={() => onClickHandler(props.question.id, true)} className={(props.realAnswer === 'true') ? css.fill : null}>
+                    <button onClick={() => onClickHandler(props.question.id, true)} className={(props.realAnswer === 'true')? css.fill:null}>
                         <img src={True} alt="isTrue" /> True</button>
                     <label id={css.or}>or</label>
-                    <button onClick={() => onClickHandler(props.question.id, false)} className={`${css.false} ${(props.realAnswer === 'false') ? css.fill : null}`}>
+                    <button onClick={() => onClickHandler(props.question.id, false)} className={`${css.false} ${(props.realAnswer === 'false')?css.fill:null}`}>
                         <img src={False} alt="isFalse" /> False</button>
                 </div>
                 <div className={`${css.answer} 	d-block d-sm-none`}>
@@ -67,7 +68,7 @@ const Question = (props) => {
             {(props.time) ? <div className={css.footer}>
                 <Time {...props} />
             </div> : null}
-            <a href={props.question.il}><h6 id={css.author}>{props.question.io}</h6></a>
+            <a href={props.question.il}><h6 id={css.author}>{(props.question.io!=='null')?props.question.io:''}</h6></a>
         </div>)
     }
     return (

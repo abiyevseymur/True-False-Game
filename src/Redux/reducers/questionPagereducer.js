@@ -1,4 +1,5 @@
-import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, FILL_BUTTON, SWIPE_ON_TOUCH, SWIPE_STARTED } from "../actions/constants";
+import { OPEN_QUESTION_PAGE, GAME_WITH_TIME, GET_QUESTION, INCREASE_SCORE, STOP_SCORE, 
+    FILL_BUTTON, SWIPE_ON_TOUCH, SWIPE_STARTED, GET_ALL_ID } from "../actions/constants";
 
 const initialState = {
     open: null,
@@ -7,10 +8,13 @@ const initialState = {
     score: 0,
     answer: null,
     pixel: 0,
-    swiped:false,
-    desc:null,
+    swiped: false,
+    desc: null,
+    IDs: 0,
+    removeId:null,
 }
 export const questionPageReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case OPEN_QUESTION_PAGE:
             return {
@@ -25,7 +29,8 @@ export const questionPageReducer = (state = initialState, action) => {
         case GET_QUESTION:
             return {
                 ...state,
-                question: action.payload
+                question: action.payload,
+                IDs: (state.IDs)?state.IDs.filter(array=>array !== action.remove):state.IDs
             }
         case INCREASE_SCORE:
             return {
@@ -41,7 +46,7 @@ export const questionPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 answer: action.answer,
-                desc:action.desc
+                desc: action.desc
             }
         case SWIPE_ON_TOUCH:
             return {
@@ -52,6 +57,11 @@ export const questionPageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 swiped: true
+            }
+        case GET_ALL_ID:
+            return {
+                ...state,
+                IDs: action.payload
             }
         default:
             return state;

@@ -4,7 +4,7 @@ import Swipe from 'react-easy-swipe';
 
 const SwipeItem = (props) => {
   function onSwipeStart(event) {
-    localStorage.setItem('swipeStart','true')
+    localStorage.setItem('swipeStart', 'true')
   }
 
   function onSwipeMove(position, event) {
@@ -14,23 +14,30 @@ const SwipeItem = (props) => {
   function onSwipeEnd(event) {
     if (props.pixel > 80) {
       props.swiped(props.pixel)
-      props.onSwipeHandler(props.question.id,true)
+      event.preventDefault()
+      props.onSwipeHandler(props.question.id, true)
+
+
     }
-    else if(props.pixel< -80){
+    else if (props.pixel < -80) {
       props.swiped(props.pixel)
-      props.onSwipeHandler(props.question.id,false)
+      event.preventDefault()
+      props.onSwipeHandler(props.question.id, false)
+
+
     }
-    else{
+    else {
       props.swiped(0)
     }
+
   }
   return (
     <Swipe
       onSwipeStart={onSwipeStart}
       onSwipeMove={onSwipeMove}
       onSwipeEnd={onSwipeEnd}
-      >  
-      <div className={css.swipeItem}></div>
+    >
+      <div className={css.swipeItem} ></div>
     </Swipe>
   );
 

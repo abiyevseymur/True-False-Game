@@ -24,6 +24,7 @@ class QuestionContainer extends Component {
     }
 }
 const mapsStateToProps = (state) => {
+
     return {
         open: state.questionPage.open,
         time: state.questionPage.time,
@@ -31,7 +32,7 @@ const mapsStateToProps = (state) => {
         score: state.questionPage.score,
         answer: state.questionPage.answer,
         pixel:state.questionPage.pixel,
-        swipeStarted:state.questionPage.swiped
+        swipeStarted:state.questionPage.swiped,
     }
 }
 
